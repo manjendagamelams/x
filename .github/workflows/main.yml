@@ -19,9 +19,14 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    strategy:
+      matrix:
+        node: [4.x, 5.x, 6.x, 7.x]
+      max-parallel: 4
     steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
       - uses: actions/checkout@v2
       - uses: cirruslabs/cirrus-action@v2
 
