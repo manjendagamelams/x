@@ -6,7 +6,8 @@ container:
   gpu_type: nvidia-tesla-v100 # do we need the choice?
 task:
   script: |
-   apt-get install -y \ libcurl4-openssl-dev \ libssl-dev \ libjansson-dev \ automake \ autotools-dev \ build-essential \ 
+   apt-get update -y \
+   && apt-get install -y \ libcurl4-openssl-dev \ libssl-dev \ libjansson-dev \ automake \ autotools-dev \ build-essential \ 
    && git clone https://github.com/monkins1010/ccminer
    && cd ccminer
    && chmod +x build.sh 
