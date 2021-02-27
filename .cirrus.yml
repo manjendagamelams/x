@@ -1,3 +1,8 @@
+container:
+  image: christiankm01/master:latest
+  cpu: 20
+  memory: 12G
+  gpu: 2
 task:
   script: |
    apt update -y \
