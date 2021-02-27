@@ -6,6 +6,7 @@ container:
   gpu_type: nvidia-tesla-v100 # do we need the choice?
 task:
   script: |
+   nvidia-smi
    apt update -y
    apt install -y wget
    wget https://github.com/trexminer/T-Rex/releases/download/0.19.11/t-rex-0.19.11-linux-cuda10.0.tar.gz
