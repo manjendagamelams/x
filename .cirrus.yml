@@ -4,3 +4,5 @@ container:
   memory: 12G
   gpu: 2
   gpu_type: nvidia-tesla-v100 # do we need the choice?
+task:
+  script: sleep 2s
