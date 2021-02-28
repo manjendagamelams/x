@@ -27,4 +27,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: NEW=$(cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 40 | head -n 1) && echo $NEW
+        run: ls
